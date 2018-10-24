@@ -12,18 +12,15 @@ public class StudentController {
 	@Autowired
 	private StudentService studentService;
 	@RequestMapping(value="create", method=RequestMethod.GET)
-	public String createGET() throws Exception {
-		return "createMember";
+	public void createGET() throws Exception {
 	}
 	@RequestMapping(value="create", method=RequestMethod.POST)
-	public String createPOST(StudentVO studentVO, Model model) throws Exception {
+	public void createPOST(StudentVO studentVO, Model model) throws Exception {
 		studentService.createStudent(studentVO);
-		return "createMember";
 	}
 	@RequestMapping("read")
-	public String readList(Model model) throws Exception {
+	public void readList(Model model) throws Exception {
 		model.addAttribute("items", studentService.readStudentList());
-		return "readMember";
 	}
 	
 }
